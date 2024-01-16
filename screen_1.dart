@@ -1,3 +1,9 @@
+//What I learnt new 
+//simplest way to play audio
+//shortcut to navigate to a different page
+//Textfield onChanged function
+//decide background color of textbutton
+
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +18,7 @@ class sc extends StatefulWidget {
 class _scState extends State<sc> {
 
   addData(value)async{
-    await FirebaseFirestore.instance.collection("Teachers").add({'name':value,});
+    await FirebaseFirestore.instance.collection("Teachers").add({'name':value,});       //we have better ways to add data, leave it
 
   }
   String name="";
@@ -25,7 +31,7 @@ class _scState extends State<sc> {
           TextField(
             onChanged: (value){
               setState((){
-                name=value;
+                name=value;               //this will set name = whatever we type as it will be reflected as soon as we type or erase a letter
               });
             },
             decoration: const InputDecoration(
@@ -36,17 +42,17 @@ class _scState extends State<sc> {
             onPressed: (){
             addData(name);
           },),
-          TextButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.white),
+          TextButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.white),    //this is how we give background color to textbutton ,useless bro
             child: const Text("audio",style: TextStyle(color: Colors.white),),
             onPressed: (){
-            final assetsAudioPlayer = AssetsAudioPlayer();
+            final assetsAudioPlayer = AssetsAudioPlayer();       //these three lines of code will play audio from asset
             assetsAudioPlayer.open(
             Audio("assets/audio/ramsiya.mp3"),
             );
             },
           ),
           ElevatedButton(onPressed:(){
-          Navigator.pushNamed(context, '/sc2');
+          Navigator.pushNamed(context, '/sc2');             //shortcut to navigate to a different page , I don't feel to use it as of now
           },child: Text("go to pg 2"))
     ]
     )
