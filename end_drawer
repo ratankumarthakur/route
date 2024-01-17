@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class sc1 extends StatefulWidget {
+  const sc1({super.key});
+
+  @override
+  State<sc1> createState() => _sc1State();
+}
+
+class _sc1State extends State<sc1> {
+  GlobalKey<ScaffoldState> _globalKey=GlobalKey<ScaffoldState>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(backgroundColor: Colors.red,key: _globalKey,
+      drawer: Drawer(backgroundColor: Colors.green,width: 500,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height:300,
+              child: Center(child: Image.asset("assets/img.png")),
+            ),
+            ListTile(leading: Icon(Icons.home),title: Text("tata"),subtitle: Text("good buy"),trailing: Icon(Icons.search),onTap: (){},),
+            ListTile(leading: Icon(Icons.home),title: Text("tata"),subtitle: Text("good buy"),trailing: Icon(Icons.search),onTap: (){},),
+            ListTile(leading: Icon(Icons.home),title: Text("tata"),subtitle: Text("good buy"),trailing: Icon(Icons.search),onTap: (){},)
+
+          ],
+        )
+      ),endDrawer: Drawer(),body: IconButton(icon: Icon(Icons.menu),onPressed: (){_globalKey.currentState?.openEndDrawer();},),
+    );
+  }
+}
